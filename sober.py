@@ -1,5 +1,5 @@
 import cv2
-from pygame import mixer
+
 
 import numpy as np
 # Dlib for deep learning based Modules and face landmark detection
@@ -9,8 +9,7 @@ from imutils import face_utils
 lower_red = np.array([0, 50, 50])
 upper_red = np.array([10, 255, 255])
 
-mixer.init()
-mixer.music.load("alarm.mp3")
+
 
 
 # Initializing the camera and taking the instance
@@ -127,7 +126,7 @@ while True:
             if(drowsy > 6 and redness_score>0.25):
                 status = "Not sober :|"
                 color = (0, 0, 255)
-                mixer.music.play()
+                
 
         else:
             drowsy = 0
@@ -139,7 +138,7 @@ while True:
             elif(active > 6 and redness_score>0.25):
                 status = "Not SOBER :|"
                 color = (0, 0, 255)   
-                mixer.music.play() 
+                
 
         cv2.putText(frame, status, (100, 100),
                     cv2.FONT_HERSHEY_SIMPLEX, 1.2, color, 3)
